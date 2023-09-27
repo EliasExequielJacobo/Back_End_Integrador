@@ -1,4 +1,7 @@
 import nodemailer from 'nodemailer'
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const appSecurity = process.env.APP_SECURITY;
 
@@ -6,7 +9,7 @@ const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth:{
         user: '8bitstoreverifyinteg@gmail.com',
-        pass: 'clex qvfh rvjl szfg'
+        pass: appSecurity
     },
     from: '8bitstoreverifyinteg@gmail.com'
 });
