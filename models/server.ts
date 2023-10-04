@@ -2,6 +2,7 @@ import express, {Express} from "express";
 import cors from "cors";
 
 import authRoutes from "../routes/auth"
+import ordersRoutes from "../routes/orders"
 import { dbConnection } from "../database/config";
 
 export class Server {
@@ -9,11 +10,13 @@ export class Server {
     app: Express
     port: string | number | undefined
     authPath: string
+    ordersPath: string
 
     constructor() {
         this.app = express();
         this.port = process.env.PORT;
         this.authPath = '/auth';
+        this.ordersPath = '/orders';
 
         this.conectarDB();
         this.middlewares();
@@ -31,6 +34,7 @@ export class Server {
 
     routes(): void {
         this.app.use(this.authPath, authRoutes)
+        this.app.use(this.ordersPath, ordersRoutes)
     }
 
     listen(): void {
