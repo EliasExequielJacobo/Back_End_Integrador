@@ -21,7 +21,7 @@ interface IItem {
 export interface IOrder {
     createdAt: Date;
     user: Types.ObjectId;
-    price: Number;
+    // price: Number;
     items: IItem[];
     shippingDetails: IShippingDetails;
     status: String;
@@ -38,10 +38,10 @@ const OrderSchema = new Schema<IOrder>({
         ref: 'Usuario',
         required: true,
     },
-    price: {
-        type: Number,
-        required: true,
-    },
+    // price: {
+    //     type: Number,
+    //     required: true,
+    // },
     items: {
         type: [{
             desc: {
