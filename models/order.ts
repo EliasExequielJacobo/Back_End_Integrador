@@ -10,8 +10,8 @@ interface IShippingDetails {
 
 
 interface IItem {
-    desc: String;
-    id: Number;
+    name: String;
+    id: Number; 
     price: Number;
     quantity: Number;
     title: String;
@@ -44,7 +44,7 @@ const OrderSchema = new Schema<IOrder>({
     // },
     items: {
         type: [{
-            desc: {
+            name: {
                 type: String,
                 required: true,
             },
